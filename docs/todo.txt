@@ -1,0 +1,19 @@
+elapsed time
+
+Friday evening:     1h, 35m
+Saturday morning:   2h, 00m
+Saturday afternoon: 3h, 50m
+
+
+todo:
+
+- put the repo on github
+- create the "detail" view controller
+- put an activity indicator on the footer when the app is fetching new items
+- rename the app, create an app icon and a launch screen
+- use a UICollectionView instead of a UITableView in order to have different views for different devices, e.g. multiple columns on bigger screen
+- split items in sections, each section is a "page"
+- let the user choose number of items per page (and reload the items on change)
+- put the downloaded images on cache and create a plist to retrieve them
+- put an activity indicator in the center of the page for the first load
+- put an activity indicator on the status bar when there's networking activity

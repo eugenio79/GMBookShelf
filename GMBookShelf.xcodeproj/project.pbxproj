@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62C4E5ED4D2D4DAFCDF8FC7F /* Pods_GMBookShelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E302DE9BE8461F867AD5EE0A /* Pods_GMBookShelf.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E721B47A6DC00D957FF /* todo.txt */; };
+		BA4B2E781B47C68800D957FF /* GMHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E771B47C68800D957FF /* GMHttpClient.m */; };
+		BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */; };
+		BA4B2E7F1B47D0CD00D957FF /* sample.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */; };
+		BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E821B47D38E00D957FF /* GMCell.m */; };
+		BA5F3B0D1B47143B00259500 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B0C1B47143B00259500 /* main.m */; };
+		BA5F3B101B47143B00259500 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B0F1B47143B00259500 /* AppDelegate.m */; };
+		BA5F3B161B47143B00259500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B141B47143B00259500 /* Main.storyboard */; };
+		BA5F3B181B47143B00259500 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B171B47143B00259500 /* Images.xcassets */; };
+		BA5F3B1B1B47143B00259500 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B191B47143B00259500 /* LaunchScreen.xib */; };
+		BA5F3B271B47143C00259500 /* GMBookShelfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B261B47143C00259500 /* GMBookShelfTests.m */; };
+		BA5F3B331B47151E00259500 /* GMBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B321B47151E00259500 /* GMBookListViewController.m */; };
+		BA5F3B381B47182900259500 /* GMBook.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B371B47182900259500 /* GMBook.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA5F3B211B47143C00259500 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5F3AFF1B47143B00259500 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA5F3B061B47143B00259500;
+			remoteInfo = GMBookShelf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6C14CF611F9AF0E9BB5CC361 /* Pods-GMBookShelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMBookShelf.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMBookShelf/Pods-GMBookShelf.release.xcconfig"; sourceTree = "<group>"; };
+		BA4B2E721B47A6DC00D957FF /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
+		BA4B2E761B47C68800D957FF /* GMHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMHttpClient.h; sourceTree = "<group>"; };
+		BA4B2E771B47C68800D957FF /* GMHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMHttpClient.m; sourceTree = "<group>"; };
+		BA4B2E791B47C7AD00D957FF /* GMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSource.h; sourceTree = "<group>"; };
+		BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDataSource.m; sourceTree = "<group>"; };
+		BA4B2E7C1B47C7F900D957FF /* GMDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSourceProtocol.h; sourceTree = "<group>"; };
+		BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpeg; sourceTree = "<group>"; };
+		BA4B2E811B47D38E00D957FF /* GMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCell.h; sourceTree = "<group>"; };
+		BA4B2E821B47D38E00D957FF /* GMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCell.m; sourceTree = "<group>"; };
+		BA5F3B071B47143B00259500 /* GMBookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMBookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5F3B0B1B47143B00259500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5F3B0C1B47143B00259500 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA5F3B0E1B47143B00259500 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA5F3B0F1B47143B00259500 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA5F3B151B47143B00259500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA5F3B171B47143B00259500 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BA5F3B1A1B47143B00259500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GMBookShelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5F3B251B47143C00259500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5F3B261B47143C00259500 /* GMBookShelfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMBookShelfTests.m; sourceTree = "<group>"; };
+		BA5F3B311B47151E00259500 /* GMBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMBookListViewController.h; sourceTree = "<group>"; };
+		BA5F3B321B47151E00259500 /* GMBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMBookListViewController.m; sourceTree = "<group>"; };
+		BA5F3B361B47182900259500 /* GMBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMBook.h; sourceTree = "<group>"; };
+		BA5F3B371B47182900259500 /* GMBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMBook.m; sourceTree = "<group>"; };
+		CBA3F01114579918D7F5E790 /* Pods-GMBookShelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMBookShelf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMBookShelf/Pods-GMBookShelf.debug.xcconfig"; sourceTree = "<group>"; };
+		E302DE9BE8461F867AD5EE0A /* Pods_GMBookShelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMBookShelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA5F3B041B47143B00259500 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62C4E5ED4D2D4DAFCDF8FC7F /* Pods_GMBookShelf.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA5F3B1D1B47143C00259500 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA4B2E6C1B471B4E00D957FF /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E791B47C7AD00D957FF /* GMDataSource.h */,
+				BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */,
+				BA4B2E7C1B47C7F900D957FF /* GMDataSourceProtocol.h */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		BA4B2E711B47A6BA00D957FF /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E721B47A6DC00D957FF /* todo.txt */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		BA4B2E751B47C65C00D957FF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E761B47C68800D957FF /* GMHttpClient.h */,
+				BA4B2E771B47C68800D957FF /* GMHttpClient.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BA4B2E7D1B47D0CD00D957FF /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		BA4B2E801B47D35C00D957FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E811B47D38E00D957FF /* GMCell.h */,
+				BA4B2E821B47D38E00D957FF /* GMCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA5F3AFE1B47143B00259500 = {
+			isa = PBXGroup;
+			children = (
+				BA4B2E711B47A6BA00D957FF /* docs */,
+				BA5F3B091B47143B00259500 /* GMBookShelf */,
+				BA5F3B0A1B47143B00259500 /* Supporting Files */,
+				BA5F3B231B47143C00259500 /* GMBookShelfTests */,
+				BA5F3B081B47143B00259500 /* Products */,
+				DBAD5C167174E6915983C369 /* Pods */,
+				FC97A1EA2C157CC7EDD48CBA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BA5F3B081B47143B00259500 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B071B47143B00259500 /* GMBookShelf.app */,
+				BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA5F3B091B47143B00259500 /* GMBookShelf */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B0E1B47143B00259500 /* AppDelegate.h */,
+				BA5F3B0F1B47143B00259500 /* AppDelegate.m */,
+				BA5F3B301B47150C00259500 /* Controllers */,
+				BA4B2E6C1B471B4E00D957FF /* DataSources */,
+				BA5F3B171B47143B00259500 /* Images.xcassets */,
+				BA5F3B191B47143B00259500 /* LaunchScreen.xib */,
+				BA5F3B141B47143B00259500 /* Main.storyboard */,
+				BA5F3B351B47182900259500 /* Models */,
+				BA4B2E751B47C65C00D957FF /* Networking */,
+				BA4B2E7D1B47D0CD00D957FF /* resources */,
+				BA4B2E801B47D35C00D957FF /* Views */,
+			);
+			path = GMBookShelf;
+			sourceTree = "<group>";
+		};
+		BA5F3B0A1B47143B00259500 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B0B1B47143B00259500 /* Info.plist */,
+				BA5F3B0C1B47143B00259500 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = GMBookShelf;
+			sourceTree = "<group>";
+		};
+		BA5F3B231B47143C00259500 /* GMBookShelfTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B261B47143C00259500 /* GMBookShelfTests.m */,
+				BA5F3B241B47143C00259500 /* Supporting Files */,
+			);
+			path = GMBookShelfTests;
+			sourceTree = "<group>";
+		};
+		BA5F3B241B47143C00259500 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B251B47143C00259500 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA5F3B301B47150C00259500 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B311B47151E00259500 /* GMBookListViewController.h */,
+				BA5F3B321B47151E00259500 /* GMBookListViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BA5F3B351B47182900259500 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA5F3B361B47182900259500 /* GMBook.h */,
+				BA5F3B371B47182900259500 /* GMBook.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DBAD5C167174E6915983C369 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBA3F01114579918D7F5E790 /* Pods-GMBookShelf.debug.xcconfig */,
+				6C14CF611F9AF0E9BB5CC361 /* Pods-GMBookShelf.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC97A1EA2C157CC7EDD48CBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E302DE9BE8461F867AD5EE0A /* Pods_GMBookShelf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA5F3B061B47143B00259500 /* GMBookShelf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA5F3B2A1B47143C00259500 /* Build configuration list for PBXNativeTarget "GMBookShelf" */;
+			buildPhases = (
+				93FB2A76942F680B9BBF39B4 /* Check Pods Manifest.lock */,
+				BA5F3B031B47143B00259500 /* Sources */,
+				BA5F3B041B47143B00259500 /* Frameworks */,
+				BA5F3B051B47143B00259500 /* Resources */,
+				C2B32BD3249E94B7C78EB2E5 /* Embed Pods Frameworks */,
+				96485C3526D8205BFCB4F438 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GMBookShelf;
+			productName = GMBookShelf;
+			productReference = BA5F3B071B47143B00259500 /* GMBookShelf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA5F3B1F1B47143C00259500 /* GMBookShelfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA5F3B2D1B47143C00259500 /* Build configuration list for PBXNativeTarget "GMBookShelfTests" */;
+			buildPhases = (
+				BA5F3B1C1B47143C00259500 /* Sources */,
+				BA5F3B1D1B47143C00259500 /* Frameworks */,
+				BA5F3B1E1B47143C00259500 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA5F3B221B47143C00259500 /* PBXTargetDependency */,
+			);
+			name = GMBookShelfTests;
+			productName = GMBookShelfTests;
+			productReference = BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA5F3AFF1B47143B00259500 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = eugenio;
+				TargetAttributes = {
+					BA5F3B061B47143B00259500 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 84H5N96FB8;
+					};
+					BA5F3B1F1B47143C00259500 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = BA5F3B061B47143B00259500;
+					};
+				};
+			};
+			buildConfigurationList = BA5F3B021B47143B00259500 /* Build configuration list for PBXProject "GMBookShelf" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA5F3AFE1B47143B00259500;
+			productRefGroup = BA5F3B081B47143B00259500 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA5F3B061B47143B00259500 /* GMBookShelf */,
+				BA5F3B1F1B47143C00259500 /* GMBookShelfTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA5F3B051B47143B00259500 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA4B2E7F1B47D0CD00D957FF /* sample.jpeg in Resources */,
+				BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */,
+				BA5F3B161B47143B00259500 /* Main.storyboard in Resources */,
+				BA5F3B1B1B47143B00259500 /* LaunchScreen.xib in Resources */,
+				BA5F3B181B47143B00259500 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA5F3B1E1B47143C00259500 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93FB2A76942F680B9BBF39B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		96485C3526D8205BFCB4F438 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GMBookShelf/Pods-GMBookShelf-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2B32BD3249E94B7C78EB2E5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GMBookShelf/Pods-GMBookShelf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA5F3B031B47143B00259500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */,
+				BA5F3B331B47151E00259500 /* GMBookListViewController.m in Sources */,
+				BA4B2E781B47C68800D957FF /* GMHttpClient.m in Sources */,
+				BA5F3B101B47143B00259500 /* AppDelegate.m in Sources */,
+				BA5F3B381B47182900259500 /* GMBook.m in Sources */,
+				BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */,
+				BA5F3B0D1B47143B00259500 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA5F3B1C1B47143C00259500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA5F3B271B47143C00259500 /* GMBookShelfTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA5F3B221B47143C00259500 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA5F3B061B47143B00259500 /* GMBookShelf */;
+			targetProxy = BA5F3B211B47143C00259500 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA5F3B141B47143B00259500 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA5F3B151B47143B00259500 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA5F3B191B47143B00259500 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA5F3B1A1B47143B00259500 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA5F3B281B47143C00259500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA5F3B291B47143C00259500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA5F3B2B1B47143C00259500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBA3F01114579918D7F5E790 /* Pods-GMBookShelf.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
+				INFOPLIST_FILE = GMBookShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
+			};
+			name = Debug;
+		};
+		BA5F3B2C1B47143C00259500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C14CF611F9AF0E9BB5CC361 /* Pods-GMBookShelf.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
+				INFOPLIST_FILE = GMBookShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
+			};
+			name = Release;
+		};
+		BA5F3B2E1B47143C00259500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GMBookShelfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GMBookShelf.app/GMBookShelf";
+			};
+			name = Debug;
+		};
+		BA5F3B2F1B47143C00259500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GMBookShelfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GMBookShelf.app/GMBookShelf";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA5F3B021B47143B00259500 /* Build configuration list for PBXProject "GMBookShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5F3B281B47143C00259500 /* Debug */,
+				BA5F3B291B47143C00259500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA5F3B2A1B47143C00259500 /* Build configuration list for PBXNativeTarget "GMBookShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5F3B2B1B47143C00259500 /* Debug */,
+				BA5F3B2C1B47143C00259500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA5F3B2D1B47143C00259500 /* Build configuration list for PBXNativeTarget "GMBookShelfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5F3B2E1B47143C00259500 /* Debug */,
+				BA5F3B2F1B47143C00259500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA5F3AFF1B47143B00259500 /* Project object */;
+}
