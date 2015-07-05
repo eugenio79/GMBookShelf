@@ -9,6 +9,7 @@
 #import "GMBookListViewController.h"
 #import "GMHttpClient.h"
 #import "GMCell.h"
+#import "GMBookDetailViewController.h"
 
 #define GM_PAGE_SIZE 20
 
@@ -18,11 +19,14 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     GMHttpClient *_httpClient;
     NSMutableArray *_booksInCache;
     NSInteger _currentOffset;
+    GMBook *_selectedBook;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation GMBookListViewController
+
+#pragma mark - controller lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +50,13 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     }];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"bookDetailSegue"]) {
+        GMBookDetailViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.book = _selectedBook;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -103,6 +114,12 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 88.0f;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectedBook = _booksInCache[indexPath.row];
+    [self performSegueWithIdentifier:@"bookDetailSegue" sender:self];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
