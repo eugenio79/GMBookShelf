@@ -12,10 +12,11 @@
 #define GMDHttpClientErrorDomain @"GMDHttpClientErrorDomain"
 
 typedef NS_ENUM(NSInteger, GMHttpClientErrorCode) {
-    GMHttpClientErrorCodeParsing                = 1,
-    GMHttpClientErrorRequestInProgress          = 2
+    GMHttpClientErrorCodeParsing                = 1
 };
 
+#define NOTIFICATION_DETAILS_RECEIVED @"NOTIFICATION_DETAILS_RECEIVED"
+#define NOTIFICATION_IMAGE_DOWNLOADED @"NOTIFICATION_IMAGE_DOWNLOADED"
 
 @interface GMHttpClient : NSObject
 
@@ -33,6 +34,11 @@ typedef NS_ENUM(NSInteger, GMHttpClientErrorCode) {
  */
 - (void)requestDetailsForBookWithId:(NSString *)bookId withSuccessBlock:(void (^)(GMBook *bookWithDetails))success failure:(void (^)(NSError *error))failure;
 
+/**
+ * This method uses two ways to notificate the completion of the task:
+ * - with a block (success or failure), to notify directly the caller
+ * - with an NSNotification, to notify anyone else is registering as an observer
+ */
 - (void)requestImageForBook:(GMBook *)book withSuccessBlock:(void (^)(UIImage *image))success failure:(void (^)(NSError *error))failure;
 
 /// @return YES if there's already a requestBookList in progress

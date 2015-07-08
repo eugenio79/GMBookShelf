@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GMBook.h"
 
-@interface GMCell : UITableViewCell
+@interface GMCell : UICollectionViewCell
 
 @property (nonatomic, strong) GMBook *book;
 

@@ -9,11 +9,6 @@
 #import "GMHttpClient.h"
 #import "AFNetworking.h"
 
-@interface GMHttpClient() {
-    BOOL _requestingForBookList;   // it's YES while there's a request for new items in progress
-}
-@end
-
 @implementation GMHttpClient
 
 + (GMHttpClient *)sharedInstance {
@@ -30,16 +25,6 @@
 
 - (void)requestBookListWithOffset:(NSInteger)offset withCount:(NSInteger)count withSuccessBlock:(void (^)(NSArray *bookList))success failure:(void (^)(NSError *error))failure
 {
-    // I allow only a single request for bookList at a time
-    if (_requestingForBookList) {
-        if (failure != nil) {
-            failure([NSError errorWithDomain:GMDHttpClientErrorDomain code:GMHttpClientErrorRequestInProgress userInfo:nil]);
-        }
-        return;
-    }
-    
-    _requestingForBookList = YES;
-    
     NSLog(@"requesting bookList...");
     
     NSString *urlStr = [NSString stringWithFormat:@"%@items?offset=%ld&count=%ld", self.baseUrlString, (long)offset, (long)count];
@@ -50,8 +35,6 @@
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        _requestingForBookList = NO;
         
         NSLog(@"bookList request completed with success");
         
@@ -93,8 +76,6 @@
         
         NSLog(@"bookList request completed with failure");
         
-        _requestingForBookList = NO;
-        
         if (failure != nil) {
             failure(error);
         }
@@ -130,13 +111,30 @@
         
         GMBook *book = [GMBook bookWithDictionary:(NSDictionary *)responseObject];
         
-        success(book);
+        if (success) {
+            success(book);
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DETAILS_RECEIVED
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     @"book": book,
+                                                                     @"image": (UIImage *)responseObject
+                                                                     }];
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         if (failure != nil) {
             failure(error);
         }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DETAILS_RECEIVED
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     @"bookId": bookId,
+                                                                     @"error": error
+                                                                     }];
     }];
     
     [operation start];
@@ -158,11 +156,25 @@
             success((UIImage *)responseObject);
         }
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_IMAGE_DOWNLOADED
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     @"book": book,
+                                                                     @"image": (UIImage *)responseObject
+                                                                     }];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         if (failure != nil) {
             failure(error);
         }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_IMAGE_DOWNLOADED
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     @"bookId": book.ID,
+                                                                     @"error": error
+                                                                     }];
     }];
     [requestOperation start];
 }

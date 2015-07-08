@@ -7,30 +7,22 @@
 //
 
 #import "GMCell.h"
+#import "GMTheme.h"
 
 @interface GMCell()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
 @end
 
 @implementation GMCell
 
-
 - (void)setBook:(GMBook *)book {
     _book = book;
     
-    self.titleLabel.text = (book.title != nil) ? book.title : @"";
-    self.authorLabel.text = (book.author != nil) ? book.author : @"";
-    self.priceLabel.text = (book.price != nil) ? [book.price description] : @"";
-    self.currencyLabel.text = (book.price != nil) ? @"€" : @"";
-    self.iconView.image = (book.image != nil) ? book.image : nil;
-//    self.iconView.image = [UIImage imageNamed:@"sample.jpeg"];
+    self.contentView.frame = self.frame;    // workaround to avoid constraints errors in logs
     
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"sample" ofType:@"jpeg"];
-//    self.iconView.image = [UIImage imageWithContentsOfFile:imagePath];
+    self.titleLabel.text = (book.title != nil) ? book.title : @"";
+    self.iconView.image = (book.image != nil) ? book.image : [GMTheme placeholder];
 }
 
 @end

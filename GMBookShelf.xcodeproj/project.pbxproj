@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		62C4E5ED4D2D4DAFCDF8FC7F /* Pods_GMBookShelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E302DE9BE8461F867AD5EE0A /* Pods_GMBookShelf.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BA1C0A3E1B4CFC1200FF1272 /* GMHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1C0A3D1B4CFC1200FF1272 /* GMHttpClient.m */; };
+		BA1C0A411B4CFC3200FF1272 /* GMTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1C0A401B4CFC3200FF1272 /* GMTheme.m */; };
+		BA1C0A451B4D0DCE00FF1272 /* launchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A421B4D0DCE00FF1272 /* launchImage.png */; };
+		BA1C0A461B4D0DCE00FF1272 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A431B4D0DCE00FF1272 /* placeholder.png */; };
+		BA1C0A471B4D0DCE00FF1272 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */; };
 		BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E721B47A6DC00D957FF /* todo.txt */; };
-		BA4B2E781B47C68800D957FF /* GMHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E771B47C68800D957FF /* GMHttpClient.m */; };
 		BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */; };
-		BA4B2E7F1B47D0CD00D957FF /* sample.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */; };
 		BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E821B47D38E00D957FF /* GMCell.m */; };
 		BA57B7B01B48742C003C6279 /* GMBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57B7AF1B48742C003C6279 /* GMBookDetailViewController.m */; };
+		BA5CC1641B49A73C0038638E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BA5CC1631B49A73C0038638E /* Podfile */; };
+		BA5CC16C1B49AC590038638E /* GMActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5CC16B1B49AC590038638E /* GMActivityIndicatorView.xib */; };
+		BA5CC16F1B49AC720038638E /* GMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC16E1B49AC720038638E /* GMActivityIndicatorView.m */; };
+		BA5CC1751B4A5B8C0038638E /* GMFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC1741B4A5B8C0038638E /* GMFooter.m */; };
 		BA5F3B0D1B47143B00259500 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B0C1B47143B00259500 /* main.m */; };
 		BA5F3B101B47143B00259500 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B0F1B47143B00259500 /* AppDelegate.m */; };
 		BA5F3B161B47143B00259500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B141B47143B00259500 /* Main.storyboard */; };
 		BA5F3B181B47143B00259500 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B171B47143B00259500 /* Images.xcassets */; };
-		BA5F3B1B1B47143B00259500 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5F3B191B47143B00259500 /* LaunchScreen.xib */; };
 		BA5F3B271B47143C00259500 /* GMBookShelfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B261B47143C00259500 /* GMBookShelfTests.m */; };
 		BA5F3B331B47151E00259500 /* GMBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B321B47151E00259500 /* GMBookListViewController.m */; };
 		BA5F3B381B47182900259500 /* GMBook.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5F3B371B47182900259500 /* GMBook.m */; };
@@ -36,25 +42,34 @@
 
 /* Begin PBXFileReference section */
 		6C14CF611F9AF0E9BB5CC361 /* Pods-GMBookShelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMBookShelf.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMBookShelf/Pods-GMBookShelf.release.xcconfig"; sourceTree = "<group>"; };
+		BA1C0A3C1B4CFC1200FF1272 /* GMHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMHttpClient.h; sourceTree = "<group>"; };
+		BA1C0A3D1B4CFC1200FF1272 /* GMHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMHttpClient.m; sourceTree = "<group>"; };
+		BA1C0A3F1B4CFC3200FF1272 /* GMTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMTheme.h; sourceTree = "<group>"; };
+		BA1C0A401B4CFC3200FF1272 /* GMTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMTheme.m; sourceTree = "<group>"; };
+		BA1C0A421B4D0DCE00FF1272 /* launchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage.png; sourceTree = "<group>"; };
+		BA1C0A431B4D0DCE00FF1272 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		BA4B2E721B47A6DC00D957FF /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		BA4B2E761B47C68800D957FF /* GMHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMHttpClient.h; sourceTree = "<group>"; };
-		BA4B2E771B47C68800D957FF /* GMHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMHttpClient.m; sourceTree = "<group>"; };
 		BA4B2E791B47C7AD00D957FF /* GMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSource.h; sourceTree = "<group>"; };
 		BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDataSource.m; sourceTree = "<group>"; };
 		BA4B2E7C1B47C7F900D957FF /* GMDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSourceProtocol.h; sourceTree = "<group>"; };
-		BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpeg; sourceTree = "<group>"; };
 		BA4B2E811B47D38E00D957FF /* GMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCell.h; sourceTree = "<group>"; };
 		BA4B2E821B47D38E00D957FF /* GMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCell.m; sourceTree = "<group>"; };
 		BA57B7AE1B48742C003C6279 /* GMBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMBookDetailViewController.h; sourceTree = "<group>"; };
 		BA57B7AF1B48742C003C6279 /* GMBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMBookDetailViewController.m; sourceTree = "<group>"; };
-		BA5F3B071B47143B00259500 /* GMBookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMBookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5CC1631B49A73C0038638E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BA5CC16B1B49AC590038638E /* GMActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMActivityIndicatorView.xib; sourceTree = "<group>"; };
+		BA5CC16D1B49AC720038638E /* GMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMActivityIndicatorView.h; sourceTree = "<group>"; };
+		BA5CC16E1B49AC720038638E /* GMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMActivityIndicatorView.m; sourceTree = "<group>"; };
+		BA5CC1731B4A5B8C0038638E /* GMFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMFooter.h; sourceTree = "<group>"; };
+		BA5CC1741B4A5B8C0038638E /* GMFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMFooter.m; sourceTree = "<group>"; };
+		BA5F3B071B47143B00259500 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5F3B0B1B47143B00259500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5F3B0C1B47143B00259500 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA5F3B0E1B47143B00259500 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA5F3B0F1B47143B00259500 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA5F3B151B47143B00259500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA5F3B171B47143B00259500 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BA5F3B1A1B47143B00259500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GMBookShelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5F3B251B47143C00259500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5F3B261B47143C00259500 /* GMBookShelfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMBookShelfTests.m; sourceTree = "<group>"; };
@@ -85,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA1C0A3B1B4CFBF400FF1272 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BA1C0A3C1B4CFC1200FF1272 /* GMHttpClient.h */,
+				BA1C0A3D1B4CFC1200FF1272 /* GMHttpClient.m */,
+				BA1C0A3F1B4CFC3200FF1272 /* GMTheme.h */,
+				BA1C0A401B4CFC3200FF1272 /* GMTheme.m */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		BA4B2E6C1B471B4E00D957FF /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,19 +129,12 @@
 			path = docs;
 			sourceTree = "<group>";
 		};
-		BA4B2E751B47C65C00D957FF /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				BA4B2E761B47C68800D957FF /* GMHttpClient.h */,
-				BA4B2E771B47C68800D957FF /* GMHttpClient.m */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		BA4B2E7D1B47D0CD00D957FF /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				BA4B2E7E1B47D0CD00D957FF /* sample.jpeg */,
+				BA1C0A421B4D0DCE00FF1272 /* launchImage.png */,
+				BA1C0A431B4D0DCE00FF1272 /* placeholder.png */,
+				BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -125,6 +144,11 @@
 			children = (
 				BA4B2E811B47D38E00D957FF /* GMCell.h */,
 				BA4B2E821B47D38E00D957FF /* GMCell.m */,
+				BA5CC16B1B49AC590038638E /* GMActivityIndicatorView.xib */,
+				BA5CC16D1B49AC720038638E /* GMActivityIndicatorView.h */,
+				BA5CC16E1B49AC720038638E /* GMActivityIndicatorView.m */,
+				BA5CC1731B4A5B8C0038638E /* GMFooter.h */,
+				BA5CC1741B4A5B8C0038638E /* GMFooter.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +156,7 @@
 		BA5F3AFE1B47143B00259500 = {
 			isa = PBXGroup;
 			children = (
+				BA5CC1631B49A73C0038638E /* Podfile */,
 				BA4B2E711B47A6BA00D957FF /* docs */,
 				BA5F3B091B47143B00259500 /* GMBookShelf */,
 				BA5F3B0A1B47143B00259500 /* Supporting Files */,
@@ -145,7 +170,7 @@
 		BA5F3B081B47143B00259500 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA5F3B071B47143B00259500 /* GMBookShelf.app */,
+				BA5F3B071B47143B00259500 /* BookShelf.app */,
 				BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */,
 			);
 			name = Products;
@@ -154,15 +179,14 @@
 		BA5F3B091B47143B00259500 /* GMBookShelf */ = {
 			isa = PBXGroup;
 			children = (
+				BA1C0A3B1B4CFBF400FF1272 /* Libraries */,
 				BA5F3B0E1B47143B00259500 /* AppDelegate.h */,
 				BA5F3B0F1B47143B00259500 /* AppDelegate.m */,
 				BA5F3B301B47150C00259500 /* Controllers */,
 				BA4B2E6C1B471B4E00D957FF /* DataSources */,
 				BA5F3B171B47143B00259500 /* Images.xcassets */,
-				BA5F3B191B47143B00259500 /* LaunchScreen.xib */,
 				BA5F3B141B47143B00259500 /* Main.storyboard */,
 				BA5F3B351B47182900259500 /* Models */,
-				BA4B2E751B47C65C00D957FF /* Networking */,
 				BA4B2E7D1B47D0CD00D957FF /* resources */,
 				BA4B2E801B47D35C00D957FF /* Views */,
 			);
@@ -253,7 +277,7 @@
 			);
 			name = GMBookShelf;
 			productName = GMBookShelf;
-			productReference = BA5F3B071B47143B00259500 /* GMBookShelf.app */;
+			productReference = BA5F3B071B47143B00259500 /* BookShelf.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BA5F3B1F1B47143C00259500 /* GMBookShelfTests */ = {
@@ -317,10 +341,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4B2E7F1B47D0CD00D957FF /* sample.jpeg in Resources */,
+				BA1C0A471B4D0DCE00FF1272 /* placeholder@2x.png in Resources */,
+				BA1C0A451B4D0DCE00FF1272 /* launchImage.png in Resources */,
+				BA5CC1641B49A73C0038638E /* Podfile in Resources */,
+				BA5CC16C1B49AC590038638E /* GMActivityIndicatorView.xib in Resources */,
+				BA1C0A461B4D0DCE00FF1272 /* placeholder.png in Resources */,
 				BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */,
 				BA5F3B161B47143B00259500 /* Main.storyboard in Resources */,
-				BA5F3B1B1B47143B00259500 /* LaunchScreen.xib in Resources */,
 				BA5F3B181B47143B00259500 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,9 +417,12 @@
 				BA57B7B01B48742C003C6279 /* GMBookDetailViewController.m in Sources */,
 				BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */,
 				BA5F3B331B47151E00259500 /* GMBookListViewController.m in Sources */,
-				BA4B2E781B47C68800D957FF /* GMHttpClient.m in Sources */,
+				BA5CC1751B4A5B8C0038638E /* GMFooter.m in Sources */,
 				BA5F3B101B47143B00259500 /* AppDelegate.m in Sources */,
+				BA5CC16F1B49AC720038638E /* GMActivityIndicatorView.m in Sources */,
+				BA1C0A3E1B4CFC1200FF1272 /* GMHttpClient.m in Sources */,
 				BA5F3B381B47182900259500 /* GMBook.m in Sources */,
+				BA1C0A411B4CFC3200FF1272 /* GMTheme.m in Sources */,
 				BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */,
 				BA5F3B0D1B47143B00259500 /* main.m in Sources */,
 			);
@@ -423,14 +453,6 @@
 				BA5F3B151B47143B00259500 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BA5F3B191B47143B00259500 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA5F3B1A1B47143B00259500 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -523,10 +545,11 @@
 			baseConfigurationReference = CBA3F01114579918D7F5E790 /* Pods-GMBookShelf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
 				INFOPLIST_FILE = GMBookShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookShelf;
 				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
 			};
 			name = Debug;
@@ -536,10 +559,11 @@
 			baseConfigurationReference = 6C14CF611F9AF0E9BB5CC361 /* Pods-GMBookShelf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
 				INFOPLIST_FILE = GMBookShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookShelf;
 				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
 			};
 			name = Release;

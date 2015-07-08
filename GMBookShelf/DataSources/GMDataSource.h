@@ -13,13 +13,6 @@
 
 @property (nonatomic, weak) id<GMDataSourceProtocol> delegate;
 
-//- (void)didUpdateBook:(GMBook *)book;
-//- (void)didFetchBookList:(NSArray *)bookList;
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-
 - (NSInteger)booksCount;
 
 - (GMBook *)bookAtIndex:(NSInteger)index;

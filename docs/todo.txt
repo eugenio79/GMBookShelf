@@ -4,17 +4,19 @@ Friday evening:     1h, 35m
 Saturday morning:   2h, 00m
 Saturday afternoon: 3h, 50m
 Saturday evening:       44m
-Sunday morning:     1h, 00m
-
+Sunday morning:     2h, 30m
+Sunday afternoon:   4h, 30m
+Monday morning:     1h, 00m
+Tuesday morning:    1h, 30m
+Tuesday afternoon:  1h, 00m
 
 todo:
 
-- create the "detail" view controller
-- split items in sections, each section is a "page". The page number should be visible as the section header and as a side section index title
-- put an activity indicator on the footer when the app is fetching new items
+- What if I start the app without connectivity?
+- item details and image download should be implemented with an observer pattern, in order to be listened by detail too
+- iPad: improve the layout of the "detail" view controller (e.g. increase font size of author and price)
+- enhance collectionView header and footer layout
 - rename the app, create an app icon and a launch screen
-- use a UICollectionView instead of a UITableView in order to have different views for different devices, e.g. multiple columns on bigger screen
 - let the user choose number of items per page (and reload the items on change)
 - put the downloaded images on cache and create a plist to retrieve them
-- put an activity indicator in the center of the page for the first load
 - put an activity indicator on the status bar when there's networking activity
