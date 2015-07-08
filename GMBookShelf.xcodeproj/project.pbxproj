@@ -13,6 +13,9 @@
 		BA1C0A451B4D0DCE00FF1272 /* launchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A421B4D0DCE00FF1272 /* launchImage.png */; };
 		BA1C0A461B4D0DCE00FF1272 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A431B4D0DCE00FF1272 /* placeholder.png */; };
 		BA1C0A471B4D0DCE00FF1272 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */; };
+		BA2EFFAA1B4D1C4B00B2D008 /* placeholder_big.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA71B4D1C4B00B2D008 /* placeholder_big.png */; };
+		BA2EFFAB1B4D1C4B00B2D008 /* placeholder_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA81B4D1C4B00B2D008 /* placeholder_big@2x.png */; };
+		BA2EFFAC1B4D1C4B00B2D008 /* placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA91B4D1C4B00B2D008 /* placeholder@3x.png */; };
 		BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E721B47A6DC00D957FF /* todo.txt */; };
 		BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */; };
 		BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E821B47D38E00D957FF /* GMCell.m */; };
@@ -49,6 +52,9 @@
 		BA1C0A421B4D0DCE00FF1272 /* launchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage.png; sourceTree = "<group>"; };
 		BA1C0A431B4D0DCE00FF1272 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		BA2EFFA71B4D1C4B00B2D008 /* placeholder_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_big.png; sourceTree = "<group>"; };
+		BA2EFFA81B4D1C4B00B2D008 /* placeholder_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_big@2x.png"; sourceTree = "<group>"; };
+		BA2EFFA91B4D1C4B00B2D008 /* placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@3x.png"; sourceTree = "<group>"; };
 		BA4B2E721B47A6DC00D957FF /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		BA4B2E791B47C7AD00D957FF /* GMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSource.h; sourceTree = "<group>"; };
 		BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDataSource.m; sourceTree = "<group>"; };
@@ -63,7 +69,7 @@
 		BA5CC16E1B49AC720038638E /* GMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMActivityIndicatorView.m; sourceTree = "<group>"; };
 		BA5CC1731B4A5B8C0038638E /* GMFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMFooter.h; sourceTree = "<group>"; };
 		BA5CC1741B4A5B8C0038638E /* GMFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMFooter.m; sourceTree = "<group>"; };
-		BA5F3B071B47143B00259500 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5F3B071B47143B00259500 /* GMBookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMBookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5F3B0B1B47143B00259500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5F3B0C1B47143B00259500 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA5F3B0E1B47143B00259500 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,6 +138,9 @@
 		BA4B2E7D1B47D0CD00D957FF /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA2EFFA71B4D1C4B00B2D008 /* placeholder_big.png */,
+				BA2EFFA81B4D1C4B00B2D008 /* placeholder_big@2x.png */,
+				BA2EFFA91B4D1C4B00B2D008 /* placeholder@3x.png */,
 				BA1C0A421B4D0DCE00FF1272 /* launchImage.png */,
 				BA1C0A431B4D0DCE00FF1272 /* placeholder.png */,
 				BA1C0A441B4D0DCE00FF1272 /* placeholder@2x.png */,
@@ -170,7 +179,7 @@
 		BA5F3B081B47143B00259500 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA5F3B071B47143B00259500 /* BookShelf.app */,
+				BA5F3B071B47143B00259500 /* GMBookShelf.app */,
 				BA5F3B201B47143C00259500 /* GMBookShelfTests.xctest */,
 			);
 			name = Products;
@@ -277,7 +286,7 @@
 			);
 			name = GMBookShelf;
 			productName = GMBookShelf;
-			productReference = BA5F3B071B47143B00259500 /* BookShelf.app */;
+			productReference = BA5F3B071B47143B00259500 /* GMBookShelf.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BA5F3B1F1B47143C00259500 /* GMBookShelfTests */ = {
@@ -343,12 +352,15 @@
 			files = (
 				BA1C0A471B4D0DCE00FF1272 /* placeholder@2x.png in Resources */,
 				BA1C0A451B4D0DCE00FF1272 /* launchImage.png in Resources */,
+				BA2EFFAA1B4D1C4B00B2D008 /* placeholder_big.png in Resources */,
 				BA5CC1641B49A73C0038638E /* Podfile in Resources */,
 				BA5CC16C1B49AC590038638E /* GMActivityIndicatorView.xib in Resources */,
+				BA2EFFAC1B4D1C4B00B2D008 /* placeholder@3x.png in Resources */,
 				BA1C0A461B4D0DCE00FF1272 /* placeholder.png in Resources */,
 				BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */,
 				BA5F3B161B47143B00259500 /* Main.storyboard in Resources */,
 				BA5F3B181B47143B00259500 /* Images.xcassets in Resources */,
+				BA2EFFAB1B4D1C4B00B2D008 /* placeholder_big@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +561,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
 				INFOPLIST_FILE = GMBookShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = BookShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
 			};
 			name = Debug;
@@ -563,7 +575,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Giuseppe Morana (AJY2EY3EA6)";
 				INFOPLIST_FILE = GMBookShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = BookShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8113f581-3968-4a8b-92dd-8a680635e793";
 			};
 			name = Release;

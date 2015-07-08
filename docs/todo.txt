@@ -9,14 +9,22 @@ Sunday afternoon:   4h, 30m
 Monday morning:     1h, 00m
 Tuesday morning:    1h, 30m
 Tuesday afternoon:  1h, 00m
+Wednsday morning:   3h, 00m
+Wendsday afternoon:
 
 todo:
 
-- What if I start the app without connectivity?
-- item details and image download should be implemented with an observer pattern, in order to be listened by detail too
+high:
+
+- What if I start the app without connectivity? And what if connectivity changes?
 - iPad: improve the layout of the "detail" view controller (e.g. increase font size of author and price)
-- enhance collectionView header and footer layout
-- rename the app, create an app icon and a launch screen
+- "featured" feature
+
+medium:
+
 - let the user choose number of items per page (and reload the items on change)
-- put the downloaded images on cache and create a plist to retrieve them
+
+low:
+
 - put an activity indicator on the status bar when there's networking activity
+- put the downloaded images on cache and create a plist to retrieve them

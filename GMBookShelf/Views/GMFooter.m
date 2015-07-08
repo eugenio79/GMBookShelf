@@ -7,20 +7,18 @@
 //
 
 #import "GMFooter.h"
-#import "GMActivityIndicatorView.h"
 
-@interface GMFooter()
-@property (weak, nonatomic) IBOutlet GMActivityIndicatorView *actInd;
+@interface GMFooter() {
+    BOOL _started;
+}
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actInd;
 @end
 
 @implementation GMFooter
 
-- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.actInd = [GMActivityIndicatorView createIndicatorForView:self];
-        [self.actInd show];
-    }
-    return self;
+- (void)layoutSubviews {
+    if (!_started && self.actInd != nil)
+        [self.actInd startAnimating];
 }
 
 @end

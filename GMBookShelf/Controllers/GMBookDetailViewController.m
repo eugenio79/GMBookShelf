@@ -8,9 +8,11 @@
 
 #import "GMBookDetailViewController.h"
 #import "GMHttpClient.h"
+#import "GMTheme.h"
 
 @interface GMBookDetailViewController() {
     UITapGestureRecognizer *_tapBehindGesture;
+    BOOL _viewLoaded;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -27,19 +29,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imageView.image = self.book.image;
-    self.priceLabel.text = [self.book.price description];
-    self.titleLabel.text = self.book.title;
-    self.authorLabel.text = self.book.author;
+    self.imageView.layer.borderWidth = 1.0f;
+    self.imageView.layer.borderColor = [GMTheme foregroundColor].CGColor;
+    self.imageView.layer.cornerRadius = 5.0f;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didFetchBookDetails:)
+                                                 name:NOTIFICATION_DETAILS_RECEIVED
+                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didDownloadImage:)
                                                  name:NOTIFICATION_IMAGE_DOWNLOADED
                                                object:nil];
+    
+    [self _refreshDetails];
+}
+
+- (void)_refreshDetails {
+    
+    self.titleLabel.text = (self.book.title != nil) ? self.book.title : @"";
+    self.authorLabel.text = (self.book.author != nil) ? self.book.author : @"";
+    
+    if (self.book.image != nil) {
+        
+        [self _updateImage:self.book.image];
+    } else {
+        self.imageView.image = [GMTheme placeholderBig];
+    }
+    self.priceLabel.text = (self.book.price != nil) ? [self.book.price description] : @"";
+    self.currencyLabel.hidden = self.book.price == nil;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)_updateImage:(UIImage *)image {
+    
+    [UIView transitionWithView:self.imageView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.imageView.image = image;
+    } completion:nil];
 }
 
 #pragma mark - utility methods
@@ -60,6 +90,7 @@
     }
     
     self.book = book;
+    [self _refreshDetails];
 }
 
 - (void)didDownloadImage:(NSNotification *)notification {
@@ -79,7 +110,9 @@
     
     UIImage *image = notification.userInfo[@"image"];
     if (image != nil) {
-        self.imageView.image = image;
+        [self _updateImage:self.book.image];
+    } else {
+        self.imageView.image = [GMTheme placeholderBig];
     }
 }
 

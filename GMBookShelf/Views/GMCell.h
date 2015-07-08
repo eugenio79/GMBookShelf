@@ -11,6 +11,9 @@
 
 @interface GMCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *hSeparator;
+@property (weak, nonatomic) IBOutlet UIView *vSeparator;
+
 @property (nonatomic, strong) GMBook *book;
 
 @end

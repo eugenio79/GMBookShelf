@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BA5F3B061B47143B00259500"
-               BuildableName = "GMBookShelf.app"
+               BuildableName = "BookShelf.app"
                BlueprintName = "GMBookShelf"
                ReferencedContainer = "container:GMBookShelf.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BA5F3B061B47143B00259500"
-            BuildableName = "GMBookShelf.app"
+            BuildableName = "BookShelf.app"
             BlueprintName = "GMBookShelf"
             ReferencedContainer = "container:GMBookShelf.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BA5F3B061B47143B00259500"
-            BuildableName = "GMBookShelf.app"
+            BuildableName = "BookShelf.app"
             BlueprintName = "GMBookShelf"
             ReferencedContainer = "container:GMBookShelf.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BA5F3B061B47143B00259500"
-            BuildableName = "GMBookShelf.app"
+            BuildableName = "BookShelf.app"
             BlueprintName = "GMBookShelf"
             ReferencedContainer = "container:GMBookShelf.xcodeproj">
          </BuildableReference>

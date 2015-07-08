@@ -12,5 +12,8 @@
 @interface GMTheme : NSObject
 
 + (UIImage *)placeholder;
++ (UIImage *)placeholderBig;
++ (UIColor *)backgroundColor;
++ (UIColor *)foregroundColor;
 
 @end

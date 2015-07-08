@@ -12,8 +12,8 @@
 #import "GMBookDetailViewController.h"
 #import "GMActivityIndicatorView.h"
 
-#define GM_PAGE_SIZE 20
-#define GM_FOOTER_HEIGHT 50
+#define GM_PAGE_SIZE 25
+#define GM_FOOTER_HEIGHT 88.0f
 
 static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/v1/";
 
@@ -37,8 +37,6 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.flowLayout.footerReferenceSize = CGSizeMake(0, GM_FOOTER_HEIGHT);
     
     _booksInCache = [[NSMutableArray alloc] init];
     
@@ -99,11 +97,11 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     
     static NSString *CellIdentifier = @"GMCell";
     
-    NSInteger index = indexPath.row * (indexPath.section + 1);
-    
-    GMBook *currentBook = _booksInCache[index];
-    
+    GMBook *currentBook = _booksInCache[indexPath.row];
     GMCell *cell = (GMCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.hSeparator.hidden = [self _hideHorizontalSeparator:indexPath];
+    cell.vSeparator.hidden = [self _hideVerticalSeparator:indexPath];
     
     cell.book = currentBook;
     
@@ -126,7 +124,6 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
                     NSLog(@"error while trying to fetch image at url: %@", bookWithDetails.imageUrlString);
                 }];
             }
-            
         } failure:^(NSError *error) {
             
             [self _showErrorWithMessage:[error localizedDescription]];
@@ -147,18 +144,20 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     
     _selectedBook = _booksInCache[indexPath.row];
     
-    NSString *segue = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? @"pushSegue": @"modalSegue";
+    NSString *segue = [self _isPad] ? @"modalSegue" : @"pushSegue";
     
     [self performSegueWithIdentifier:segue sender:self];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
+    static NSString *HeaderIdentifier = @"GMFooter";
+    
     UICollectionReusableView *reusableview = nil;
     
      if (kind == UICollectionElementKindSectionFooter) {
         
-        UICollectionReusableView *footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GMFooter" forIndexPath:indexPath];
+        UICollectionReusableView *footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:HeaderIdentifier forIndexPath:indexPath];
         
         reusableview = footerView;
     }
@@ -168,9 +167,10 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
-    if (_booksInCache.count == 0) return CGSizeZero;
+    // http://stackoverflow.com/questions/24174456/issues-inserting-into-uicollectionview-section-which-contains-a-footer
     
-    return CGSizeZero;
+    if (_booksInCache.count == 0) return CGSizeMake(0.001f, 0.001f);
+    return _loading ? CGSizeMake(0.0f, GM_FOOTER_HEIGHT) : CGSizeMake(0.001f, 0.001f);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -255,7 +255,7 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 
 - (void)_addTapBehindGesture {
     
-    if (UI_USER_INTERFACE_IDIOM() ==  UIUserInterfaceIdiomPhone) return;
+    if (![self _isPad]) return;
     
     if (_tapBehindGesture == nil) {
         _tapBehindGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapBehindDetected:)];
@@ -300,6 +300,39 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
             }];
         }
     }
+}
+
+- (BOOL)_isPad {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+}
+
+- (BOOL)_isOdd:(NSInteger)number {
+    return ((number % 2) == 1);
+}
+
+/// display vertical separator only between two columns
+- (BOOL)_hideHorizontalSeparator:(NSIndexPath *)indexPath {
+    
+    BOOL hide;
+    if ([self _isPad]) {
+        hide = (indexPath.row == _booksInCache.count - 1) ||
+        ((indexPath.row == (_booksInCache.count - 2)) && ![self _isOdd:indexPath.row]);
+    } else {
+        hide = indexPath.row == (_booksInCache.count - 1);
+    }
+    return hide;
+}
+
+/// hide horizontal separator on the last row
+- (BOOL)_hideVerticalSeparator:(NSIndexPath *)indexPath {
+    
+    BOOL hide;
+    if ([self _isPad]) {
+        hide = [self _isOdd:indexPath.row];
+    } else {
+        hide = YES;
+    }
+    return hide;
 }
 
 @end
