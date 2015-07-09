@@ -65,13 +65,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)_updateImage:(UIImage *)image {
-    
-    [UIView transitionWithView:self.imageView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        self.imageView.image = image;
-    } completion:nil];
-}
-
 #pragma mark - utility methods
 
 - (void)didFetchBookDetails:(NSNotification *)notification {
@@ -114,6 +107,13 @@
     } else {
         self.imageView.image = [GMTheme placeholderBig];
     }
+}
+
+- (void)_updateImage:(UIImage *)image {
+    
+    [UIView transitionWithView:self.imageView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.imageView.image = image;
+    } completion:nil];
 }
 
 @end

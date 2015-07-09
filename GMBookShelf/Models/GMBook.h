@@ -11,10 +11,6 @@
 
 @interface GMBook : NSObject
 
-+ (GMBook *)bookWithDictionary:(NSDictionary *)dict;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *link;
@@ -23,6 +19,12 @@
 @property (nonatomic, strong) NSString *imageUrlString; // detail
 
 @property (nonatomic, strong) UIImage *image;
+
++ (GMBook *)bookWithDictionary:(NSDictionary *)dict;
+
++ (GMBook *)bookWithContentsOfFile:(NSString *)path;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 /**
  * @return YES if author, price and imageUrlString are already populated

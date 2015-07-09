@@ -11,57 +11,72 @@
 #import "GMCell.h"
 #import "GMBookDetailViewController.h"
 #import "GMActivityIndicatorView.h"
+#import "GMCache.h"
 
 #define GM_PAGE_SIZE 25
 #define GM_FOOTER_HEIGHT 88.0f
 
 static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/v1/";
 
-@interface GMBookListViewController () <UIGestureRecognizerDelegate> {
+@interface GMBookListViewController () <UIGestureRecognizerDelegate, UIAlertViewDelegate> {
     GMHttpClient *_httpClient;
-    NSMutableArray *_booksInCache;
-    NSInteger _currentOffset;
+    NSMutableArray *_bookList;
     GMBook *_selectedBook;
     GMActivityIndicatorView *_actInd;
     BOOL _loading;
     BOOL _lastItemReached;                      // it'll become YES when the HTTP client'll answer with an empty array
     UITapGestureRecognizer *_tapBehindGesture;  // used when detail is presented modally (iPad)
+    GMCache *_cache;
+    BOOL _isAlertVisible;   // workaround to avoid multiple alerts to be displayed
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UILabel *noNetworkLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshBtnItem;
 @end
 
 @implementation GMBookListViewController
+
+- (IBAction)refreshBtnTapped:(id)sender {
+    
+    self.refreshBtnItem.enabled = NO;
+    
+    [_bookList removeAllObjects];
+    [_cache clear];
+    [self.collectionView reloadData];
+    [self _loadBookListPage];
+}
 
 #pragma mark - controller lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _booksInCache = [[NSMutableArray alloc] init];
+    self.title = @"Book list";
     
+    _bookList = [[NSMutableArray alloc] init];
+    _cache = [GMCache sharedInstance];
     _httpClient = [GMHttpClient sharedInstance];
     
-    [_httpClient requestBookListWithOffset:_currentOffset withCount:GM_PAGE_SIZE withSuccessBlock:^(NSArray *bookList) {
-        
-        [self _hideActInd];
-        [_booksInCache addObjectsFromArray:bookList];
-        [self.collectionView reloadData];
-        
-        _currentOffset += GM_PAGE_SIZE;
-        
-    } failure:^(NSError *error) {
-        
-        [self _hideActInd];
-        [self _showErrorWithMessage:[error localizedDescription]];
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:NOTIFICATION_NETWORK_STATUS_CHANGED
+                                               object:nil];
+    
+    if ([_httpClient isOnline]) {
+        [self _loadBookListPage];
+    } else {
+        self.noNetworkLabel.hidden = NO;
+        self.collectionView.hidden = YES;
+    }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)networkStatusChanged:(NSNotification *)notification {
     
-    if ([_booksInCache count] == 0)
-        [self _showActInd];
+    GMHttpClientNetworkStatus networkStatus = (GMHttpClientNetworkStatus)[notification.userInfo[@"status"] integerValue];
+    if ((networkStatus == GMHttpClientNetworkStatusOnline) && (_bookList.count == 0)) {
+        [self _loadBookListPage];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -82,6 +97,14 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     [self.flowLayout invalidateLayout];
 }
 
+- (void)didReceiveMemoryWarning {
+    
+    [_bookList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        GMBook *book = (GMBook *)obj;
+        book.image = nil;
+    }];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -90,14 +113,14 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _booksInCache.count;
+    return _bookList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"GMCell";
     
-    GMBook *currentBook = _booksInCache[indexPath.row];
+    GMBook *currentBook = _bookList[indexPath.row];
     GMCell *cell = (GMCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.hSeparator.hidden = [self _hideHorizontalSeparator:indexPath];
@@ -109,24 +132,41 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
         
         [_httpClient requestDetailsForBookWithId:currentBook.ID withSuccessBlock:^(GMBook *bookWithDetails) {
             
-            _booksInCache[indexPath.row] = bookWithDetails;
+            if (indexPath.row >= _bookList.count) return;
+            
+            _bookList[indexPath.row] = bookWithDetails;
             
             if (bookWithDetails.image == nil) {
                 
-                [_httpClient requestImageForBook:bookWithDetails withSuccessBlock:^(UIImage *image) {
+                [_cache loadImageWithUrlString:bookWithDetails.imageUrlString withSuccessBlock:^(UIImage *imageCached) {
                     
-                    GMBook *book = _booksInCache[indexPath.row];
-                    book.image = image;
-                    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                    bookWithDetails.image = imageCached;
+                    
+                    // because the user could've pressed the 'refresh' item in the meanwhile
+                    if (indexPath.row < _bookList.count)
+                        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
                     
                 } failure:^(NSError *error) {
                     
-                    NSLog(@"error while trying to fetch image at url: %@", bookWithDetails.imageUrlString);
+                    [_httpClient requestImageForBook:bookWithDetails withSuccessBlock:^(UIImage *image) {
+                        
+                        bookWithDetails.image = image;
+                        
+                        // because the user could've pressed the 'refresh' item in the meanwhile
+                        if (indexPath.row < _bookList.count)
+                            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                        
+                        [_cache saveImage:bookWithDetails.image relatedToUrlString:bookWithDetails.imageUrlString];
+                        
+                    } failure:^(NSError *error) {
+                        
+                        NSLog(@"error while trying to fetch image at url: %@", bookWithDetails.imageUrlString);
+                    }];
                 }];
             }
         } failure:^(NSError *error) {
             
-            [self _showErrorWithMessage:[error localizedDescription]];
+            NSLog(@"error while trying to get details for book: %@", currentBook.ID);
         }];
     }
     
@@ -142,7 +182,7 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    _selectedBook = _booksInCache[indexPath.row];
+    _selectedBook = _bookList[indexPath.row];
     
     NSString *segue = [self _isPad] ? @"modalSegue" : @"pushSegue";
     
@@ -169,7 +209,7 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     
     // http://stackoverflow.com/questions/24174456/issues-inserting-into-uicollectionview-section-which-contains-a-footer
     
-    if (_booksInCache.count == 0) return CGSizeMake(0.001f, 0.001f);
+    if (_bookList.count == 0) return CGSizeMake(0.001f, 0.001f);
     return _loading ? CGSizeMake(0.0f, GM_FOOTER_HEIGHT) : CGSizeMake(0.001f, 0.001f);
 }
 
@@ -181,30 +221,7 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     CGFloat contentHeight = scrollView.contentSize.height - (self.collectionView.bounds.size.height);
     if (actualPosition >= contentHeight) {
         
-        if (_loading) return;
-        
-        _loading = YES;
-        
-        [_httpClient requestBookListWithOffset:_currentOffset withCount:GM_PAGE_SIZE withSuccessBlock:^(NSArray *bookList) {
-            
-            if (bookList.count == 0) {
-                _lastItemReached = YES;
-            }
-            else {
-                [_booksInCache addObjectsFromArray:bookList];
-                [self.collectionView reloadData];
-                
-                _currentOffset += GM_PAGE_SIZE;
-            }
-            
-            _loading = NO;
-            
-        } failure:^(NSError *error) {
-            
-            [self _showErrorWithMessage:[error localizedDescription]];
-            
-            _loading = NO;
-        }];
+        [self _loadBookListPage];
     }
 }
 
@@ -222,16 +239,87 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     return YES;
 }
 
+
+
 #pragma mark - utility methods
+
+- (void)_loadBookListPage {
+    
+    // offline
+    
+    if (![_httpClient isOnline]) {
+        
+        if (_bookList.count == 0) {
+            self.noNetworkLabel.hidden = NO;
+            self.collectionView.hidden = YES;
+        }
+        return;
+    }
+    
+    // online
+    
+    if (_loading) return;
+    
+    _loading = YES;
+    _refreshBtnItem.enabled = NO;
+    
+    [self.flowLayout invalidateLayout]; // reload footer (loading)
+    
+    if ([_bookList count] == 0) {
+        self.noNetworkLabel.hidden = YES;
+        [self _showActInd];
+    }
+    
+    [_httpClient requestBookListWithOffset:_bookList.count withCount:GM_PAGE_SIZE withSuccessBlock:^(NSArray *bookList) {
+        
+        if (bookList.count == 0) {
+            _lastItemReached = YES;
+        }
+        else {
+            self.collectionView.hidden = NO;
+            self.noNetworkLabel.hidden = YES;
+            [self _hideActInd];
+            [_bookList addObjectsFromArray:bookList];
+            [self.collectionView reloadData];
+        }
+        
+        _loading = NO;
+        _refreshBtnItem.enabled = YES;
+        
+    } failure:^(NSError *error) {
+        
+        _loading = NO;
+        _refreshBtnItem.enabled = YES;
+        
+        [self _hideActInd];
+        
+        if (_bookList.count == 0) {
+            self.noNetworkLabel.hidden = NO;
+            self.collectionView.hidden = YES;
+        } else {
+            [self.flowLayout invalidateLayout]; // hide "loading" footer
+        }
+        
+        [self _showErrorWithMessage:[error localizedDescription]];
+    }];
+}
 
 - (void)_showErrorWithMessage:(NSString *)message {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    if (!_isAlertVisible) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        _isAlertVisible = YES;
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    _isAlertVisible = NO;
 }
 
 - (CGSize)_cellSize {
@@ -315,10 +403,10 @@ static NSString * const BaseURLString = @"http://assignment.gae.golgek.mobi/api/
     
     BOOL hide;
     if ([self _isPad]) {
-        hide = (indexPath.row == _booksInCache.count - 1) ||
-        ((indexPath.row == (_booksInCache.count - 2)) && ![self _isOdd:indexPath.row]);
+        hide = (indexPath.row == _bookList.count - 1) ||
+        ((indexPath.row == (_bookList.count - 2)) && ![self _isOdd:indexPath.row]);
     } else {
-        hide = indexPath.row == (_booksInCache.count - 1);
+        hide = indexPath.row == (_bookList.count - 1);
     }
     return hide;
 }

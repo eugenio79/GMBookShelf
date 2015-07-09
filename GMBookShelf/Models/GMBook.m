@@ -14,6 +14,12 @@
     return [[GMBook alloc] initWithDictionary:dict];
 }
 
++ (GMBook *)bookWithContentsOfFile:(NSString *)path {
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+    if (dict == nil) return nil;
+    return [GMBook bookWithDictionary:dict];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     
     NSAssert(dict != nil, @"dict can't be nil!");

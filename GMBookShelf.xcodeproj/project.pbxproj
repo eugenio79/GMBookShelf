@@ -16,8 +16,8 @@
 		BA2EFFAA1B4D1C4B00B2D008 /* placeholder_big.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA71B4D1C4B00B2D008 /* placeholder_big.png */; };
 		BA2EFFAB1B4D1C4B00B2D008 /* placeholder_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA81B4D1C4B00B2D008 /* placeholder_big@2x.png */; };
 		BA2EFFAC1B4D1C4B00B2D008 /* placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2EFFA91B4D1C4B00B2D008 /* placeholder@3x.png */; };
-		BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA4B2E721B47A6DC00D957FF /* todo.txt */; };
-		BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */; };
+		BA2EFFE41B4D65C600B2D008 /* GMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2EFFE31B4D65C600B2D008 /* GMCache.m */; };
+		BA2EFFEE1B4E9A9900B2D008 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2EFFED1B4E9A9900B2D008 /* NSString+MD5.m */; };
 		BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B2E821B47D38E00D957FF /* GMCell.m */; };
 		BA57B7B01B48742C003C6279 /* GMBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57B7AF1B48742C003C6279 /* GMBookDetailViewController.m */; };
 		BA5CC1641B49A73C0038638E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BA5CC1631B49A73C0038638E /* Podfile */; };
@@ -55,10 +55,10 @@
 		BA2EFFA71B4D1C4B00B2D008 /* placeholder_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_big.png; sourceTree = "<group>"; };
 		BA2EFFA81B4D1C4B00B2D008 /* placeholder_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_big@2x.png"; sourceTree = "<group>"; };
 		BA2EFFA91B4D1C4B00B2D008 /* placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@3x.png"; sourceTree = "<group>"; };
-		BA4B2E721B47A6DC00D957FF /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		BA4B2E791B47C7AD00D957FF /* GMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSource.h; sourceTree = "<group>"; };
-		BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDataSource.m; sourceTree = "<group>"; };
-		BA4B2E7C1B47C7F900D957FF /* GMDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDataSourceProtocol.h; sourceTree = "<group>"; };
+		BA2EFFE21B4D65C600B2D008 /* GMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCache.h; sourceTree = "<group>"; };
+		BA2EFFE31B4D65C600B2D008 /* GMCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCache.m; sourceTree = "<group>"; };
+		BA2EFFEC1B4E9A9900B2D008 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		BA2EFFED1B4E9A9900B2D008 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		BA4B2E811B47D38E00D957FF /* GMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCell.h; sourceTree = "<group>"; };
 		BA4B2E821B47D38E00D957FF /* GMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCell.m; sourceTree = "<group>"; };
 		BA57B7AE1B48742C003C6279 /* GMBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMBookDetailViewController.h; sourceTree = "<group>"; };
@@ -113,26 +113,19 @@
 				BA1C0A3D1B4CFC1200FF1272 /* GMHttpClient.m */,
 				BA1C0A3F1B4CFC3200FF1272 /* GMTheme.h */,
 				BA1C0A401B4CFC3200FF1272 /* GMTheme.m */,
+				BA2EFFE21B4D65C600B2D008 /* GMCache.h */,
+				BA2EFFE31B4D65C600B2D008 /* GMCache.m */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		BA4B2E6C1B471B4E00D957FF /* DataSources */ = {
+		BA2EFFEB1B4E9A8C00B2D008 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				BA4B2E791B47C7AD00D957FF /* GMDataSource.h */,
-				BA4B2E7A1B47C7AD00D957FF /* GMDataSource.m */,
-				BA4B2E7C1B47C7F900D957FF /* GMDataSourceProtocol.h */,
+				BA2EFFEC1B4E9A9900B2D008 /* NSString+MD5.h */,
+				BA2EFFED1B4E9A9900B2D008 /* NSString+MD5.m */,
 			);
-			path = DataSources;
-			sourceTree = "<group>";
-		};
-		BA4B2E711B47A6BA00D957FF /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				BA4B2E721B47A6DC00D957FF /* todo.txt */,
-			);
-			path = docs;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		BA4B2E7D1B47D0CD00D957FF /* resources */ = {
@@ -166,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				BA5CC1631B49A73C0038638E /* Podfile */,
-				BA4B2E711B47A6BA00D957FF /* docs */,
 				BA5F3B091B47143B00259500 /* GMBookShelf */,
 				BA5F3B0A1B47143B00259500 /* Supporting Files */,
 				BA5F3B231B47143C00259500 /* GMBookShelfTests */,
@@ -188,11 +180,11 @@
 		BA5F3B091B47143B00259500 /* GMBookShelf */ = {
 			isa = PBXGroup;
 			children = (
+				BA2EFFEB1B4E9A8C00B2D008 /* Categories */,
 				BA1C0A3B1B4CFBF400FF1272 /* Libraries */,
 				BA5F3B0E1B47143B00259500 /* AppDelegate.h */,
 				BA5F3B0F1B47143B00259500 /* AppDelegate.m */,
 				BA5F3B301B47150C00259500 /* Controllers */,
-				BA4B2E6C1B471B4E00D957FF /* DataSources */,
 				BA5F3B171B47143B00259500 /* Images.xcassets */,
 				BA5F3B141B47143B00259500 /* Main.storyboard */,
 				BA5F3B351B47182900259500 /* Models */,
@@ -357,7 +349,6 @@
 				BA5CC16C1B49AC590038638E /* GMActivityIndicatorView.xib in Resources */,
 				BA2EFFAC1B4D1C4B00B2D008 /* placeholder@3x.png in Resources */,
 				BA1C0A461B4D0DCE00FF1272 /* placeholder.png in Resources */,
-				BA4B2E731B47A6DC00D957FF /* todo.txt in Resources */,
 				BA5F3B161B47143B00259500 /* Main.storyboard in Resources */,
 				BA5F3B181B47143B00259500 /* Images.xcassets in Resources */,
 				BA2EFFAB1B4D1C4B00B2D008 /* placeholder_big@2x.png in Resources */,
@@ -427,13 +418,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA57B7B01B48742C003C6279 /* GMBookDetailViewController.m in Sources */,
-				BA4B2E7B1B47C7AD00D957FF /* GMDataSource.m in Sources */,
 				BA5F3B331B47151E00259500 /* GMBookListViewController.m in Sources */,
 				BA5CC1751B4A5B8C0038638E /* GMFooter.m in Sources */,
 				BA5F3B101B47143B00259500 /* AppDelegate.m in Sources */,
 				BA5CC16F1B49AC720038638E /* GMActivityIndicatorView.m in Sources */,
 				BA1C0A3E1B4CFC1200FF1272 /* GMHttpClient.m in Sources */,
+				BA2EFFEE1B4E9A9900B2D008 /* NSString+MD5.m in Sources */,
 				BA5F3B381B47182900259500 /* GMBook.m in Sources */,
+				BA2EFFE41B4D65C600B2D008 /* GMCache.m in Sources */,
 				BA1C0A411B4CFC3200FF1272 /* GMTheme.m in Sources */,
 				BA4B2E831B47D38E00D957FF /* GMCell.m in Sources */,
 				BA5F3B0D1B47143B00259500 /* main.m in Sources */,

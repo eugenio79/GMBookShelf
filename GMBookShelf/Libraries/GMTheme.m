@@ -23,7 +23,7 @@
 }
 
 + (UIColor *)foregroundColor {
-    return [UIColor colorWithRed:(113.0f / 255.0f) green:(98.0f / 255.0f) blue:(98.0f / 255.0f) alpha:1.0f];
+    return [UIColor colorWithRed:(223.0f / 255.0f) green:(208.0f / 255.0f) blue:(208.0f / 255.0f) alpha:1.0f];
 }
 
 @end

@@ -8,6 +8,12 @@
 
 #import "GMHttpClient.h"
 #import "AFNetworking.h"
+#import "Reachability.h"
+
+@interface GMHttpClient() {
+    Reachability *_reachability;
+}
+@end
 
 @implementation GMHttpClient
 
@@ -18,9 +24,43 @@
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [[GMHttpClient alloc] init];
         
-        _sharedInstance.baseUrlString = @"";    // default
     });
     return _sharedInstance;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        self.baseUrlString = @"";    // default
+        
+        _reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+        
+        _reachability.reachableBlock = ^(Reachability*reach)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NETWORK_STATUS_CHANGED
+                                                                    object:nil
+                                                                  userInfo:@{
+                                                                             @"status": @(GMHttpClientNetworkStatusOnline)
+                                                                             }];
+            });
+        };
+        
+        _reachability.unreachableBlock = ^(Reachability*reach)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NETWORK_STATUS_CHANGED
+                                                                    object:nil
+                                                                  userInfo:@{
+                                                                             @"status": @(GMHttpClientNetworkStatusOffline)
+                                                                             }];
+            });
+        };
+        
+        [_reachability startNotifier];
+    }
+    return self;
 }
 
 - (void)requestBookListWithOffset:(NSInteger)offset withCount:(NSInteger)count withSuccessBlock:(void (^)(NSArray *bookList))success failure:(void (^)(NSError *error))failure
@@ -44,7 +84,7 @@
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
             if (failure != nil) {
-                failure([NSError errorWithDomain:GMDHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
+                failure([NSError errorWithDomain:GMHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
             }
             return;
         }
@@ -61,7 +101,7 @@
             if (![obj isKindOfClass:[NSDictionary class]]) {
                 
                 if (failure != nil) {
-                    failure([NSError errorWithDomain:GMDHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
+                    failure([NSError errorWithDomain:GMHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
                 }
                 return;
             }
@@ -104,7 +144,7 @@
         if (![responseObject isKindOfClass:[NSDictionary class]]) {
             
             if (failure != nil) {
-                failure([NSError errorWithDomain:GMDHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
+                failure([NSError errorWithDomain:GMHttpClientErrorDomain code:GMHttpClientErrorCodeParsing userInfo:nil]);
             }
             return;
         }
@@ -179,8 +219,8 @@
     [requestOperation start];
 }
 
-- (BOOL)isAlreadyRequestingForBookList {
-    return NO;
+- (BOOL)isOnline {
+    return [_reachability isReachable];
 }
 
 @end
